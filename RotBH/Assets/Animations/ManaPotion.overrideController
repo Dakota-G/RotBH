@@ -1,0 +1,13 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ManaPotion
+  m_Controller: {fileID: 9100000, guid: c498103ffddec9e48ae8467b5d4044a3, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 2d318b6b6b0f2a946aabcac9f5a82e02, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 9d2455becd00142458598cd6b24ee48b, type: 2}
