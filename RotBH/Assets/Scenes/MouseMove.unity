@@ -134,9 +134,8 @@ GameObject:
   - component: {fileID: 422366331}
   - component: {fileID: 422366330}
   - component: {fileID: 422366329}
-  - component: {fileID: 422366332}
   - component: {fileID: 422366333}
-  - component: {fileID: 422366334}
+  - component: {fileID: 422366332}
   m_Layer: 0
   m_Name: RedArrow
   m_TagString: Player
@@ -240,12 +239,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 422366328}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e44d00e8413c364f8c5e2671ad306fa, type: 3}
+  m_Script: {fileID: 11500000, guid: afe0d965e5275ce4faac5a9fb1f17921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  HP: 10
+  MP: 10
+  speed: 5
   rb: {fileID: 422366329}
   cam: {fileID: 1571109450}
+  firePoint: {fileID: 791434701}
+  bulletPrefab: {fileID: 6608594031268385905, guid: b993ecc1d1e8d87409a1d52c922f1c84, type: 3}
+  bulletForce: 20
 --- !u!61 &422366333
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -272,21 +276,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.32}
   m_EdgeRadius: 0
---- !u!114 &422366334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 422366328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 516684d7545aafa42b4c5f2a55469248, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firePoint: {fileID: 791434701}
-  bulletPrefab: {fileID: 6608594031268385905, guid: b993ecc1d1e8d87409a1d52c922f1c84, type: 3}
-  bulletForce: 20
 --- !u!1 &791434700
 GameObject:
   m_ObjectHideFlags: 0
