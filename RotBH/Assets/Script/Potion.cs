@@ -6,29 +6,23 @@ public class Potion : MonoBehaviour
     public GameObject potion;
     public enum PotionType{Health,Mana};
     public PotionType type;
-    public AudioSource bottleOpen;
     public int AmountHealed;
     void OnTriggerEnter2D(Collider2D collider)
     {
         if(collider.tag == "Player")
         {
-            Debug.Log("Drink me!");
-            // // When we know how the player's HP is stored:
-            // Player player = collisionInfo.collider
+            PC_Class player = collider.GetComponent<PC_Class>();
+            Debug.Log(player.HP);
             switch (type.ToString())
             {
                 case "Health":
-                    Debug.Log("Health Potion");
-                    bottleOpen.Play();
-                   // player.health += AmountHealed;
+                    player.hp_pots.Add(this);
                     break;
                 case "Mana":
-                    Debug.Log("Mana Potion");
-                    bottleOpen.Play();
-                    // player.mana += AmountHealed;
+                    player.mp_pots.Add(this);
                     break;
             }
-            Destroy(potion,.7f);
+            Destroy(potion);
         }
         // If we want enemies to be able to take potions or items as well
         else if(collider.tag == "Enemy")
