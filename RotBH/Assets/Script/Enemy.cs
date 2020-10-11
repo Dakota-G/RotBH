@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField]
+    private int HP;
     private float speed;
 
     private Transform target;
@@ -24,5 +25,20 @@ public class Enemy : MonoBehaviour
     protected void Update()
     {
         FollowTarget();
+    }
+
+    public void TakeDamage(int damage)
+    {
+        HP -= damage;
+        if(HP <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
+
     }
 }
