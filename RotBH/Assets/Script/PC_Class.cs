@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PC_Class : MonoBehaviour
 {
@@ -8,17 +9,18 @@ public class PC_Class : MonoBehaviour
     public int HP = 10;
     public int MP = 10;
     public float speed = 5f;
-    public class Inventory
-    {
-        public int hp_pots;
-        public int mp_pots;
-        public Inventory(int hps, int mps)
-        {
-            hp_pots = hps;
-            mp_pots = mps;
-        }
-    }
-    public Inventory myInventory = new Inventory(0, 0);
+    public List<Potion> hp_pots;
+    public List<Potion> mp_pots;
+    public AudioSource bottleOpen;
+    // public class Inventory
+    // {
+        // public Inventory(int hps, int mps)
+        // {
+        //     hp_pots = hps;
+        //     mp_pots = mps;
+        // }
+    // }
+    // public Inventory myInventory = new Inventory();
 
     public Rigidbody2D rb;
     public Camera cam;
@@ -51,11 +53,43 @@ public class PC_Class : MonoBehaviour
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
     }
     }
+    void Drink_Potion()
+    {
+        if(Input.GetButtonDown("Inv1"))
+        {
+            if(hp_pots.Count > 0)
+            {
+                this.HP += hp_pots[0].AmountHealed;
+                this.hp_pots.RemoveAt(0);
+                bottleOpen.Play();
+                Debug.Log($"Delicious! You now have {this.HP} HP!");
+            }
+            else
+            {
+               Debug.Log("No potion for you!");
+            }
+        }
+        else if(Input.GetButtonDown("Inv2"))
+        {
+            if(mp_pots.Count > 0)
+            {
+                this.MP += mp_pots[0].AmountHealed;
+                this.mp_pots.RemoveAt(0);
+                bottleOpen.Play();
+                Debug.Log($"Delicious! You now have {this.MP} MP!");
+            }
+            else
+            {
+                Debug.Log("No Potion for you!");
+            }
+        }
+    }
 
     void Update()
     {
         Move_Update();
         Look_Update();
+        Drink_Potion();
         Shoot();
     }
 
