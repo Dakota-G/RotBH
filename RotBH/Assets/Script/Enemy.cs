@@ -4,14 +4,24 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField]
+    [SerializeField]    
     private int HP;
+    
+    [SerializeField]    
+    private int MaxHP;
     private float speed;
 
     private Transform target;
 
     public Transform Target { get => target; set => target = value; }
     public float Speed { get => speed; set => speed = value; }
+    public Healthbar HPbar;
+
+    void Start()
+    {
+        HP = MaxHP;
+        HPbar.SetHealth(HP, MaxHP);
+    }
 
     private void FollowTarget()
     {
@@ -30,6 +40,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         HP -= damage;
+        HPbar.SetHealth(HP, MaxHP);
         if(HP <= 0)
         {
             Die();
