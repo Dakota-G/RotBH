@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Audio;
 
 public class Potion : MonoBehaviour
 {
@@ -12,17 +11,23 @@ public class Potion : MonoBehaviour
         if(collider.tag == "Player")
         {
             PC_Class player = collider.GetComponent<PC_Class>();
-            Debug.Log(player.HP);
             switch (type.ToString())
             {
                 case "Health":
-                    player.hp_pots.Add(this);
-                    break;
+                    if(player.hp_pots.Count < player.InventorySize && player.IsAlive == true)
+                    {
+                        player.hp_pots.Add(this);
+                        Destroy(potion);
+                    }
+                    break; 
                 case "Mana":
-                    player.mp_pots.Add(this);
+                    if(player.mp_pots.Count < player.InventorySize && player.IsAlive == true)
+                    {
+                        player.mp_pots.Add(this);
+                        Destroy(potion);
+                    }
                     break;
             }
-            Destroy(potion);
         }
         // If we want enemies to be able to take potions or items as well
         else if(collider.tag == "Enemy")
