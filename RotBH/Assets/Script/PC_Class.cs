@@ -1,14 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
 
 public class PC_Class : MonoBehaviour
 {
 
     public int HP = 10;
     public int MP = 10;
+    public int InventorySize = 5;
     public float speed = 5f;
+    public bool IsAlive = true;
     public List<Potion> hp_pots;
     public List<Potion> mp_pots;
     public AudioSource bottleOpen;
@@ -85,12 +86,47 @@ public class PC_Class : MonoBehaviour
         }
     }
 
+    public GameObject hpPrefab;
+    public GameObject mpPrefab;
+    void ThrowAllPotions()
+    {
+            Random rand = new Random();
+            foreach(Potion potion in hp_pots)
+            {
+                hpPrefab.GetComponent<Potion>().AmountHealed = potion.AmountHealed;
+                GameObject ThisPotion = Instantiate(hpPrefab, firePoint.position,firePoint.rotation);
+                Rigidbody2D rb = ThisPotion.GetComponent<Rigidbody2D>();
+                rb.AddForce(new Vector2(Random.Range(0,360),Random.Range(0,360)),ForceMode2D.Force);
+            }
+            hp_pots.Clear();
+            foreach(Potion potion in mp_pots)
+            {
+                mpPrefab.GetComponent<Potion>().AmountHealed = potion.AmountHealed;
+                GameObject ThisPotion = Instantiate(mpPrefab, firePoint.position,firePoint.rotation);
+                Rigidbody2D rb = ThisPotion.GetComponent<Rigidbody2D>();
+                rb.AddForce(new Vector2(Random.Range(0,360),Random.Range(0,360)),ForceMode2D.Force);
+            }
+            mp_pots.Clear();
+    }
+    void Die()
+    {
+        // Once we have a way to actually take damage
+        // if(HP <= 0)
+        // Until we have a death condition, here's a line to test dying
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            IsAlive = false;
+            ThrowAllPotions();
+            Destroy(gameObject);
+        }
+    }
     void Update()
     {
         Move_Update();
         Look_Update();
         Drink_Potion();
         Shoot();
+        Die();
     }
 
 }
