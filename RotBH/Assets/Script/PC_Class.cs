@@ -67,7 +67,7 @@ public class PC_Class : MonoBehaviour
             }
             else
             {
-               Debug.Log("No potion for you!");
+                Debug.Log("No potion for you!");
             }
         }
         else if(Input.GetButtonDown("Inv2"))
@@ -108,10 +108,17 @@ public class PC_Class : MonoBehaviour
             }
             mp_pots.Clear();
     }
+    public void TakeDamage(int damage)
+    {
+        this.HP -= damage;
+        if(HP <= 0)
+        {
+            this.Die();
+        }
+    }
+
     void Die()
     {
-        // Once we have a way to actually take damage
-        // if(HP <= 0)
         // Until we have a death condition, here's a line to test dying
         if(Input.GetKeyDown(KeyCode.F))
         {
@@ -119,6 +126,8 @@ public class PC_Class : MonoBehaviour
             ThrowAllPotions();
             Destroy(gameObject);
         }
+        ThrowAllPotions();
+        Destroy(gameObject);
     }
     void Update()
     {
@@ -126,7 +135,6 @@ public class PC_Class : MonoBehaviour
         Look_Update();
         Drink_Potion();
         Shoot();
-        Die();
     }
 
 }
