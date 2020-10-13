@@ -19,6 +19,7 @@ public class EnemyOuterRange : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
+            parent.Speed = 0;
             parent.Target = null;
         }
     }
