@@ -180,6 +180,66 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd4cac3ada944f34a9ea045e175e2c95, type: 3}
+--- !u!1 &79114123
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 79114124}
+  - component: {fileID: 79114126}
+  - component: {fileID: 79114125}
+  m_Layer: 0
+  m_Name: DangerZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &79114124
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79114123}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1847205911}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &79114125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79114123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61522b7670c685146b6e36e05e37014f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &79114126
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79114123}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 3
 --- !u!1001 &223510032
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1186,6 +1246,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd4cac3ada944f34a9ea045e175e2c95, type: 3}
+--- !u!4 &1847205911 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8798426649564944270, guid: de0c26773064b7b41b927550c7aa2a71, type: 3}
+  m_PrefabInstance: {fileID: 3224831034795476287}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1901496534 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 576824636766269353, guid: 6258ac0474ebae344bf908801234d600, type: 3}
@@ -1321,6 +1386,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd4cac3ada944f34a9ea045e175e2c95, type: 3}
+--- !u!1 &2044234757
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2044234758}
+  m_Layer: 0
+  m_Name: Enemy FirePoint
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2044234758
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044234757}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.07, y: -0.15, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1847205911}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3224831034795476287
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1336,6 +1431,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8798426649564944258, guid: de0c26773064b7b41b927550c7aa2a71, type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 2044234758}
+    - target: {fileID: 8798426649564944258, guid: de0c26773064b7b41b927550c7aa2a71, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 5183399320126442385, guid: 93c0c0da4bff1b448a9f9609dfda5eaf, type: 3}
     - target: {fileID: 8798426649564944264, guid: de0c26773064b7b41b927550c7aa2a71, type: 3}
       propertyPath: m_Name
       value: Slime
