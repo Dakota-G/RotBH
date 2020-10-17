@@ -5,7 +5,8 @@ using UnityEngine;
 public class PC_Class : MonoBehaviour
 {
 
-    public int HP = 10;
+    public int HP;
+    public int MaxHP = 100;
     public int MP = 10;
     public int InventorySize = 5;
     public float speed = 5f;
@@ -60,10 +61,21 @@ public class PC_Class : MonoBehaviour
         {
             if(hp_pots.Count > 0)
             {
-                this.HP += hp_pots[0].AmountHealed;
-                this.hp_pots.RemoveAt(0);
-                bottleOpen.Play();
-                Debug.Log($"Delicious! You now have {this.HP} HP!");
+                // Limit Potions to only heal to the MaxHP
+                if(this.HP + hp_pots[0].AmountHealed < this.MaxHP)
+                {
+                    this.HP += hp_pots[0].AmountHealed;
+                    this.hp_pots.RemoveAt(0);
+                    bottleOpen.Play();
+                    Debug.Log($"Delicious! You now have {this.HP} HP!");
+                }
+                else if(this.HP + hp_pots[0].AmountHealed >= this.MaxHP)
+                {
+                    this.HP = this.MaxHP;
+                    this.hp_pots.RemoveAt(0);
+                    bottleOpen.Play();
+                    Debug.Log($"Max HP! You have {this.HP} HP!");
+                }
             }
             else
             {
@@ -128,6 +140,11 @@ public class PC_Class : MonoBehaviour
         }
         ThrowAllPotions();
         Destroy(gameObject);
+    }
+
+    void Start()
+    {
+        this.HP = this.MaxHP;
     }
     void Update()
     {

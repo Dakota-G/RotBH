@@ -417,7 +417,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afe0d965e5275ce4faac5a9fb1f17921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 10
+  HP: 100
+  MaxHP: 100
   MP: 10
   InventorySize: 5
   speed: 5
@@ -1060,6 +1061,7 @@ GameObject:
   - component: {fileID: 1571109451}
   - component: {fileID: 1571109450}
   - component: {fileID: 1571109449}
+  - component: {fileID: 1571109452}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1132,6 +1134,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1571109452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571109448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bce3d23583c52d478005e86f0eb9ebc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followTarget: {fileID: 422366328}
+  elasticity: 0.55
 --- !u!1001 &1723305279
 PrefabInstance:
   m_ObjectHideFlags: 0
