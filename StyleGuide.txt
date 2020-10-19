@@ -1,0 +1,129 @@
+Style Guide Proposal
+
+I. Code
+Ia. Organization
+Ib. Naming Conventions
+Ic. Commments
+
+II. Git
+IIa. Commit Titles
+IIb. Commit Description
+
+III. Unity
+IIIa. Asset Organization
+IIIb. Scene Organization
+
+References:
+https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/inside-a-program/coding-conventions
+https://www.c-sharpcorner.com/UploadFile/8a67c0/C-Sharp-coding-standards-and-naming-conventions/
+
+
+
+I CODE:
+Code should be minimalistic, scalable, and reusable. 
+
+Ia. ORGANIZATION
+Code should be organized (where/when possible) so that a class properties/fields/variables are listed first,
+custom methods come after, and built-in/standard methods (Start(), Update(), etc), at the end.
+Fields should be declared as private and properties should be used to get and set their values, 
+as a general rule.
+Four-space tabs.
+Line lengths should max at about 100 characters from the first column (even if empty).
+This line is about 101 characters in length, so you know roughly how long a maxed out line should be.
+There should be a single blank line between methods, but none between variables.
+Curly for methods should start on line beneath them.
+Use parentheses to make clauses in an expression apparent.
+To avoid exceptions and increase performance by skipping unnecessary comparisons, use && 
+instead of & and || instead of | when you perform comparisons.
+Single line is OK for AutoProperties (like Number, below).
+And comments to label, explain come before the code.
+
+For example:
+public Class fakeClass()
+{
+    private string _name;
+    private int _number;
+    public int Number { get { return _number; } set { _id = value; } };
+
+    void SomeMethodIMade()
+    {
+    }
+    
+    void Start()
+    {
+    }
+    
+    void Update()
+    {
+    }
+}
+
+Ib. NAMING CONVENTIONS
+Methods and variables should be given names that clearly explain their purpose, without being
+unnecessarily wordy. The exception being, of course, temp variables that exist inside a method, their
+purpose being clear. (while(x > 0)) for example.
+Variables and Methods that are standard for several classes should have standardized names as well.
+All names should follow C# CamelCase standards:
+https://www.c-sharpcorner.com/UploadFile/8a67c0/C-Sharp-coding-standards-and-naming-conventions/
+
+Private Field: _underScore
+Public/Protected/Internal Field: PascalCase
+Property: PascalCase
+Method: PascalCase
+Class: PascalCase
+Interface: IPascalCase
+Local Var: lowerCamelCase
+Parameter: lowerCamelCase
+Namespace: PascalCase
+
+
+For example, the following can refer to a player character, enemy, or boss:
+private int _currentHP;
+public int CurrentHP { get { _currentHP; } set { _currentHP = value; } }
+
+void Move()
+void TakeDamage()
+
+Ic. COMMENTS
+Comments should not be necessary, as code should be readable and explicit, but comments can make
+reading code faster and simpler or can clarify those cases where the code can be difficult
+to interpret.
+
+Comments should be on their own line, above any code they are attempting to explain or label,
+preferablly above a chunk of code when possible rather than inside a chunk. 
+There should be a space after the comment separators.
+Comments should be proper sentences (capitalized, punctuation, etc) except for labels.
+
+These tags indicate the type of comment:
+!! (with CAPPED text): An important alert or warning
+??: An explanation for a chunk of code that may need further work/reworking. A workaround or contains a bug.
+TODO: The note explains a TODO connected with the following code
+--(All capped text)--: A label
+
+For example:
+// !! IF THIS VARIABLE IS CHANGED, THE RUN() METHOD MAY NOT WORK!
+// ?? This method only works once per run. Not sure why.
+// TODO: Add auto aiming to this Shoot() method.
+// --MOVEMENT METHODS--
+
+II GIT:
+IIa. GIT TITLES
+Git titles should be a quick summary of the main work done.
+The format should be VERB(item(s) changed) 
+Every different item in the parentheses should be separated by semi-colons and they should be the names 
+of the files (with or without file endings) or major code changes/methods/features/logic/etc.
+
+'Created' should be used when a new file is created.
+'Added' should be used when new code is created inside an already made file.
+'Edited' should be used when previous code was changed significantly.
+'Deleted' should be used when a file is deleted.
+'Removed' should be used when previous code has been deleted from a file.
+
+For example:
+Created(SlimeClass.cs) Edited(PC_Class Attack Method; Die Method) Deleted(SlimeBoss.cs)
+
+IIb. GIT DESCRIPTION
+Git descriptions can be more extensive and explain the work indicated in the title. There's no
+style guide for this specifically, since these are messages we send to each other.
+They can reiterate what was said in the title or they can warn of possible issues or whatever seems
+important.
