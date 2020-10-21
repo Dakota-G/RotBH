@@ -5,44 +5,43 @@ using UnityEngine;
 public class RandomSpawn : MonoBehaviour
 {
     public GameObject[] enemies;
-    public bool spawn;
-    public int spawnReset;
-    public Vector3 spawnPosition;
-    public float spawnTime = 5f;
+    public Vector3 enemySpawnPosition;
+    public float enemySpawnTime = 5f;
+
+    public GameObject[] potions;
+    public Vector3 potionSpawnPosition;
     // Start is called before the first frame update
     void Start()
     {
-        // spawn = true;
-        // spawnReset = 0;
-        InvokeRepeating("SpawnRandom", spawnTime, spawnTime);
+        // InvokeRepeating will call the method every 6sec.
+        InvokeRepeating("SpawnRandom", enemySpawnTime, enemySpawnTime);
+        SpawnPotions();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // if(spawn == true)
-        // {
-        //     SpawnRandom();
-        // }
-        // else
-        // {
-        //     spawnReset += 1;
-        //     if(spawnReset >= 10000)
-        //     {
-        //         spawn = true;
-        //     }
-        // }
+
     }
     void SpawnRandom()
     {
         foreach(GameObject enemy in enemies)
         {
-            spawnPosition.x = Random.Range(-5,5);
-            spawnPosition.y = Random.Range(-5,5);
-            spawnPosition.z = 0;
-            Instantiate(enemy, spawnPosition, Quaternion.identity);
+            enemySpawnPosition.x = Random.Range(-5,5);
+            enemySpawnPosition.y = Random.Range(-5,5);
+            enemySpawnPosition.z = 0;
+            Instantiate(enemy, enemySpawnPosition, Quaternion.identity);
         }
-        spawn = false;
-        spawnReset = 0;
+    }
+
+    void SpawnPotions()
+    {
+        foreach(GameObject potion in potions)
+        {
+            potionSpawnPosition.x = Random.Range(-8,8);
+            potionSpawnPosition.y = Random.Range(-8,8);
+            potionSpawnPosition.z = 0;
+            Instantiate(potion, potionSpawnPosition, Quaternion.identity);
+        }
     }
 }
