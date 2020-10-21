@@ -23,7 +23,8 @@ I CODE:
 Code should be minimalistic, scalable, and reusable. 
 
 Ia. ORGANIZATION
-Code should be organized (where/when possible) so that a class properties/fields/variables are listed first,
+Code should be organized (where/when possible) so that a class properties/fields/variables are 
+listed first,
 custom methods come after, and built-in/standard methods (Start(), Update(), etc), at the end.
 Fields should be declared as private and properties should be used to get and set their values, 
 as a general rule.
@@ -96,7 +97,8 @@ Comments should be proper sentences (capitalized, punctuation, etc) except for l
 
 These tags indicate the type of comment:
 !! (with CAPPED text): An important alert or warning
-??: An explanation for a chunk of code that may need further work/reworking. A workaround or contains a bug.
+??: An explanation for a chunk of code that may need further work/reworking. A workaround or 
+contains a bug.
 TODO: The note explains a TODO connected with the following code
 --(All capped text)--: A label
 
