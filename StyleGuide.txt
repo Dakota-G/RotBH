@@ -38,13 +38,15 @@ To avoid exceptions and increase performance by skipping unnecessary comparisons
 instead of & and || instead of | when you perform comparisons.
 Single line is OK for AutoProperties (like Number, below).
 And comments to label, explain come before the code.
+All classes should have private fields and public properties with getters and setters (See naming conventions).
+Getters and Setters should be in lambda format, as is possible.
 
 For example:
 public Class fakeClass()
 {
     private string _name;
     private int _number;
-    public int Number { get { return _number; } set { _id = value; } };
+    public int Number { get => _number; } set => _id = value; };
 
     void SomeMethodIMade()
     {
@@ -80,7 +82,7 @@ Namespace: PascalCase
 
 For example, the following can refer to a player character, enemy, or boss:
 private int _currentHP;
-public int CurrentHP { get { _currentHP; } set { _currentHP = value; } }
+public int CurrentHP { get => _currentHP; } set => _currentHP = value; }
 
 void Move()
 void TakeDamage()
@@ -111,18 +113,19 @@ For example:
 II GIT:
 IIa. GIT TITLES
 Git titles should be a quick summary of the main work done.
-The format should be VERB(item(s) changed) 
+The format should be VERB(item(s) changed).
+The VERB should be in present imperative tense.
 Every different item in the parentheses should be separated by semi-colons and they should be the names 
 of the files (with or without file endings) or major code changes/methods/features/logic/etc.
 
-'Created' should be used when a new file is created.
-'Added' should be used when new code is created inside an already made file.
-'Edited' should be used when previous code was changed significantly.
-'Deleted' should be used when a file is deleted.
-'Removed' should be used when previous code has been deleted from a file.
+'Create' should be used when a new file is created.
+'Add' should be used when new code is created inside an already made file.
+'Edit' should be used when previous code was changed significantly.
+'Delete' should be used when a file is deleted.
+'Remove' should be used when previous code has been deleted from a file.
 
 For example:
-Created(SlimeClass.cs) Edited(PC_Class Attack Method; Die Method) Deleted(SlimeBoss.cs)
+Create(SlimeClass.cs) Edit(PC_Class Attack Method; Die Method) Delete(SlimeBoss.cs)
 
 IIb. GIT DESCRIPTION
 Git descriptions can be more extensive and explain the work indicated in the title. There's no
