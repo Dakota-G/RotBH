@@ -244,9 +244,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hP: 0
-  _maxHP: 100
+  _maxHP: 20
   _mP: 10
-  _inventorySize: 5
+  HP_Pots: []
+  MP_Pots: []
   BottleOpen: {fileID: 0}
   RB: {fileID: 422366329}
   Cam: {fileID: 1571109450}
@@ -255,8 +256,8 @@ MonoBehaviour:
   firePoint: {fileID: 791434701}
   bulletPrefab: {fileID: 6608594031268385905, guid: b993ecc1d1e8d87409a1d52c922f1c84, type: 3}
   bulletForce: 20
-  hpPrefab: {fileID: 2238945322298469104, guid: fd4cac3ada944f34a9ea045e175e2c95, type: 3}
-  mpPrefab: {fileID: 6092269260110457118, guid: c04424cd3aae50c4aaf5568bbcf7b61e, type: 3}
+  HpPrefab: {fileID: 2238945322298469104, guid: fd4cac3ada944f34a9ea045e175e2c95, type: 3}
+  MpPrefab: {fileID: 6092269260110457118, guid: c04424cd3aae50c4aaf5568bbcf7b61e, type: 3}
 --- !u!61 &422366333
 BoxCollider2D:
   m_ObjectHideFlags: 0
