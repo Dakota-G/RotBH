@@ -243,17 +243,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afe0d965e5275ce4faac5a9fb1f17921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 100
-  MaxHP: 100
-  MP: 10
-  InventorySize: 5
-  speed: 5
-  IsAlive: 1
-  hp_pots: []
-  mp_pots: []
-  bottleOpen: {fileID: 422366334}
-  rb: {fileID: 422366329}
-  cam: {fileID: 1571109450}
+  _hP: 0
+  _maxHP: 100
+  _mP: 10
+  _inventorySize: 5
+  BottleOpen: {fileID: 0}
+  RB: {fileID: 422366329}
+  Cam: {fileID: 1571109450}
+  Movement: {x: 0, y: 0}
+  MousePos: {x: 0, y: 0}
   firePoint: {fileID: 791434701}
   bulletPrefab: {fileID: 6608594031268385905, guid: b993ecc1d1e8d87409a1d52c922f1c84, type: 3}
   bulletForce: 20
@@ -631,8 +629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bce3d23583c52d478005e86f0eb9ebc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followTarget: {fileID: 422366328}
-  elasticity: 0.55
+  FollowTarget: {fileID: 0}
 --- !u!114 &1571109453
 MonoBehaviour:
   m_ObjectHideFlags: 0

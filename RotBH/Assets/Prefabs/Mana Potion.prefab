@@ -164,6 +164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d10a2aabf016aa49b9cb1601bb2bc46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  potion: {fileID: 6092269260110457118}
-  type: 1
+  Pot: {fileID: 6092269260110457118}
+  Type: 0
   AmountHealed: 15

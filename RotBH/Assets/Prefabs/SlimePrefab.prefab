@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2909707093021603897}
   - component: {fileID: 2909707093021603896}
   m_Layer: 0
-  m_Name: Slime2
+  m_Name: SlimePrefab
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,12 +123,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2bba99cf41e47e4eac628e4a146f3fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 3
-  MaxHP: 5
+  _hP: 3
+  _maxHP: 3
   HPbar: {fileID: 9132165319857229330}
-  damage: 1
-  bulletPrefab: {fileID: 5183399320126442385, guid: 93c0c0da4bff1b448a9f9609dfda5eaf, type: 3}
-  bulletForce: 0.005
+  BulletPrefab: {fileID: 5183399320126442385, guid: 93c0c0da4bff1b448a9f9609dfda5eaf, type: 3}
   EFirePointR: {fileID: 9132165319352247949}
   EFirePointL: {fileID: 9132165319384388224}
 --- !u!61 &2909707093021603897
