@@ -251,8 +251,6 @@ MonoBehaviour:
   BottleOpen: {fileID: 0}
   RB: {fileID: 422366329}
   Cam: {fileID: 1571109450}
-  Movement: {x: 0, y: 0}
-  MousePos: {x: 0, y: 0}
   firePoint: {fileID: 791434701}
   bulletPrefab: {fileID: 6608594031268385905, guid: b993ecc1d1e8d87409a1d52c922f1c84, type: 3}
   bulletForce: 20
