@@ -253,9 +253,6 @@ MonoBehaviour:
   Cam: {fileID: 1571109450}
   firePoint: {fileID: 791434701}
   bulletPrefab: {fileID: 6608594031268385905, guid: b993ecc1d1e8d87409a1d52c922f1c84, type: 3}
-  bulletForce: 20
-  HpPrefab: {fileID: 2238945322298469104, guid: fd4cac3ada944f34a9ea045e175e2c95, type: 3}
-  MpPrefab: {fileID: 6092269260110457118, guid: c04424cd3aae50c4aaf5568bbcf7b61e, type: 3}
 --- !u!61 &422366333
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -628,7 +625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bce3d23583c52d478005e86f0eb9ebc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FollowTarget: {fileID: 0}
+  FollowTarget: {fileID: 422366328}
 --- !u!114 &1571109453
 MonoBehaviour:
   m_ObjectHideFlags: 0

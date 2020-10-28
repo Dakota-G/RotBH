@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Players;
 
 namespace Players
 {
-    namespace PCMechanics
+    namespace PCombat
     {
         public class Death : MonoBehaviour
         {

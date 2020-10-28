@@ -19,6 +19,8 @@ namespace Players
         private int _inventorySize = 5;
         public int InventorySize { get => _inventorySize; set => _inventorySize = value; }
         private float _speed = 3f;
+        private bool _isAlive;
+        public bool IsAlive { get => _isAlive; set => _isAlive = value;}
         public List<Potion> HP_Pots;
         public List<Potion> MP_Pots;
         public AudioSource BottleOpen;
@@ -26,7 +28,6 @@ namespace Players
         public Camera Cam;
         public Transform firePoint;
         public GameObject bulletPrefab;
-
 
         void Drink_Potion()
         {
@@ -71,26 +72,28 @@ namespace Players
             }
         }
 
-
         public void TakeDamage(int damage)
         {
             _hP -= damage;
             if(_hP <= 0)
             {
-                PCMechanics.Death.Die(this);
+                PCombat.Death.Die(this);
             }
         }
 
         void Start()
         {
             _hP = _maxHP;
+            _isAlive = true;
         }
+
         void Update()
         {
-            PCMechanics.MouseFollow.Move(RB, Cam, _speed);
+            PMovement.MouseFollow.Move(RB, Cam, _speed);
             Drink_Potion();
-            PCMechanics.Attack.Shoot(firePoint, bulletPrefab);
+            PCombat.Attack.Shoot(firePoint, bulletPrefab);
         }
+
         void FixedUpdate()
         {
         }

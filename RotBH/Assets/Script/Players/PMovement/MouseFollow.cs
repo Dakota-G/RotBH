@@ -5,7 +5,7 @@ using Players;
 
 namespace Players
 {
-    namespace PCMechanics
+    namespace PMovement
     {
         public class MouseFollow : MonoBehaviour
         {

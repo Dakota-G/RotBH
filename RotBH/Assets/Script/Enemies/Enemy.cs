@@ -8,12 +8,9 @@ using Players;
 namespace Enemies
 {
     public class Enemy : MonoBehaviour
-    {
-        [SerializeField]    
+    {   
         private int _hP;
-        public int GetHP { get => _hP; set => _hP = value; }
-        
-        [SerializeField]    
+        public int GetHP { get => _hP; set => _hP = value; }  
         private int _maxHP;
         public int MaxHP { get => _maxHP; set => _maxHP = value; }
         public Healthbar HPbar;

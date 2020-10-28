@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Players;
 using Items;
 
 namespace Players
 {
-    namespace PCMechanics
+    namespace PCombat
     {
         public class Attack : MonoBehaviour
         {
