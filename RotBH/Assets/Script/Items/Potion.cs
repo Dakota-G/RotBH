@@ -9,7 +9,7 @@ namespace Items
         public GameObject Pot;
         public enum PotionType{Health,Mana};
         public PotionType Type;
-        public int AmountHealed;
+        public float AmountHealed = .25f;
         void OnTriggerEnter2D(Collider2D collider)
         {
             if(collider.tag == "Player")

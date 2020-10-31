@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2238945322298469119}
   - component: {fileID: 2238945322298469116}
   m_Layer: 0
-  m_Name: Health Potion
+  m_Name: HP_Pot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -166,4 +166,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Pot: {fileID: 2238945322298469104}
   Type: 0
-  AmountHealed: 15
+  AmountHealed: 0.25

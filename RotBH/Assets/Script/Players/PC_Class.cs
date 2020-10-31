@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Players;
@@ -38,14 +39,15 @@ namespace Players
                 if(HP_Pots.Count > 0)
                 {
                     // Limit Potions to only heal to the MaxHP
-                    if(_hP + HP_Pots[0].AmountHealed < _maxHP)
+                    if(_hP + (_maxHP * HP_Pots[0].AmountHealed) < _maxHP)
                     {
-                        _hP += HP_Pots[0].AmountHealed;
+                        int toHeal = Convert.ToInt32(_maxHP * HP_Pots[0].AmountHealed);
+                        _hP += toHeal;
                         HP_Pots.RemoveAt(0);
                         BottleOpen.Play();
-                        Debug.Log($"Delicious! You now have {HP} HP!");
+                        Debug.Log($"You healed {toHeal}");
                     }
-                    else if(_hP + HP_Pots[0].AmountHealed >= _maxHP)
+                    else if(_hP + (_maxHP * HP_Pots[0].AmountHealed) >= _maxHP)
                     {
                         _hP = _maxHP;
                         HP_Pots.RemoveAt(0);
@@ -62,7 +64,8 @@ namespace Players
             {
                 if(MP_Pots.Count > 0)
                 {
-                    _mP += MP_Pots[0].AmountHealed;
+                    int toHeal = Convert.ToInt32(_mP * MP_Pots[0].AmountHealed);
+                    _mP += toHeal;
                     MP_Pots.RemoveAt(0);
                     BottleOpen.Play();
                     Debug.Log($"Delicious! You now have {MP} MP!");
