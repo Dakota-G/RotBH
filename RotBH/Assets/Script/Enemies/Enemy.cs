@@ -39,6 +39,8 @@ namespace Enemies
         public Transform AttackTarget { get => _attackTarget; set => _attackTarget = value;}
         int Rando;
 
+        public int XP;
+
         void OnCollisionEnter2D(Collision2D collision)
         {
             if(collision.gameObject.tag == "Player")
@@ -75,6 +77,7 @@ namespace Enemies
             if(_hP <= 0)
             {
                 Die();
+                
             }
         }
 
@@ -94,6 +97,7 @@ namespace Enemies
             MoveChangeTime = Random.Range(2f,4f);
             EMovement.InactiveMoveset.CalculateRandomMove(this);
             _elapsedT = 0;
+            XP = 1;
         }
 
         void Update()

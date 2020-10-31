@@ -104,6 +104,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HPbar: {fileID: 9132165319857229330}
+  LatestWanderChangeTime: 0
+  MoveChangeTime: 0
+  Wandering: 0
+  WanderDirection: {x: 0, y: 0}
+  MovementPerSecond: {x: 0, y: 0}
   BulletPrefab: {fileID: 5183399320126442385, guid: 93c0c0da4bff1b448a9f9609dfda5eaf, type: 3}
   EFirePointR: {fileID: 9132165319352247949}
   EFirePointL: {fileID: 9132165319384388224}

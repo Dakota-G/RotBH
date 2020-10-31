@@ -29,6 +29,7 @@ namespace Players
         public Camera Cam;
         public Transform firePoint;
         public GameObject bulletPrefab;
+        public int Experience;
 
         void Drink_Potion()
         {
@@ -86,13 +87,14 @@ namespace Players
         {
             _hP = _maxHP;
             _isAlive = true;
+            Experience = 0;
         }
 
         void Update()
         {
             PMovement.MouseFollow.Move(this);
             Drink_Potion();
-            PCombat.Attack.Shoot(firePoint, bulletPrefab);
+            PCombat.Attack.Shoot(firePoint, bulletPrefab, this);
         }
 
         void FixedUpdate()
