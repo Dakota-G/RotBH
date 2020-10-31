@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2909707093021603898}
   - component: {fileID: 2909707093021603901}
-  - component: {fileID: 2909707093021603899}
   - component: {fileID: 2909707093021603894}
   - component: {fileID: 2909707093021603897}
   - component: {fileID: 2909707093021603896}
@@ -92,25 +91,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &2909707093021603899
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2909707093021603900}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 13ac985034da51f48b83fb3dc45d4547, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &2909707093021603894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,8 +103,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2bba99cf41e47e4eac628e4a146f3fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hP: 3
-  _maxHP: 3
   HPbar: {fileID: 9132165319857229330}
   BulletPrefab: {fileID: 5183399320126442385, guid: 93c0c0da4bff1b448a9f9609dfda5eaf, type: 3}
   EFirePointR: {fileID: 9132165319352247949}

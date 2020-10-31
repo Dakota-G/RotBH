@@ -10,7 +10,7 @@ namespace Enemies
     public class Enemy : MonoBehaviour
     {   
         private int _hP;
-        public int GetHP { get => _hP; set => _hP = value; }  
+        public int HP { get => _hP; set => _hP = value; }  
         private int _maxHP;
         public int MaxHP { get => _maxHP; set => _maxHP = value; }
         public Healthbar HPbar;
@@ -39,18 +39,6 @@ namespace Enemies
         public Transform AttackTarget { get => _attackTarget; set => _attackTarget = value;}
         int Rando;
 
-        void Start()
-        {
-            _hP = _maxHP;
-            HPbar.SetHealth(_hP, _maxHP);
-            _speed = 0.5f;
-            _latestWanderChangeTime = 0f;
-            _wandering = true;
-            _moveChangeTime = Random.Range(2f,4f);
-            CalculateRandomMove();
-            _elapsedT = 0;
-        }
-
         private void FollowTarget()
         {
             int direction = 1;
@@ -64,25 +52,6 @@ namespace Enemies
         void CalculateRandomMove(){
             _wanderDirection = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)).normalized;
             _movementPerSecond = _wanderDirection * _speed;
-        }
-
-        protected void Update()
-        {
-            if(_target != null)
-            {
-                FollowTarget();
-                // Couldn't figure out how to get the slime to fire on a timer.. 
-                // so I gave him a 2% chance to fire per frame (still a lot of firing)
-                Rando = Random.Range(0, 100);
-                if(_attackTarget != null & Rando < 2)
-                {
-                    Attack();
-                }
-            }
-            else
-            {
-                Wander();
-            }
         }
 
         void Wander()
@@ -140,25 +109,6 @@ namespace Enemies
             }
         }
 
-        public void Attack()
-        {
-            // Check to see if the PC is on the right or left side and fire from that firePoint
-            // (keeps the bullets from hitting the slime)
-            if((_attackTarget.position.x - transform.position.x) > 0)
-            {
-                GameObject bullet = Instantiate(BulletPrefab, EFirePointR.position, Quaternion.identity);
-                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-                Vector2 Aim = new Vector2(_attackTarget.position.x - transform.position.x, _attackTarget.position.y - transform.position.y);
-                rb.AddForce(Aim * (_speed + 1.0f), ForceMode2D.Impulse);
-            }
-            else
-            {
-                GameObject bullet = Instantiate(BulletPrefab, EFirePointL.position, Quaternion.identity);
-                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-                Vector2 Aim = new Vector2(_attackTarget.position.x - transform.position.x, _attackTarget.position.y - transform.position.y);
-                rb.AddForce(Aim * (_speed + 1.0f), ForceMode2D.Impulse);
-            }
-        }
         public void TakeDamage(int damage)
         {
             _hP -= damage;
@@ -172,6 +122,38 @@ namespace Enemies
         void Die()
         {
             Destroy(gameObject);
+        }
+
+        void Start()
+        {
+            _maxHP = 5;
+            _hP = _maxHP;
+            HPbar.SetHealth(_hP, _maxHP);
+            _speed = 0.5f;
+            _latestWanderChangeTime = 0f;
+            _wandering = true;
+            _moveChangeTime = Random.Range(2f,4f);
+            CalculateRandomMove();
+            _elapsedT = 0;
+        }
+
+        void Update()
+        {
+            if(_target != null)
+            {
+                FollowTarget();
+                // Couldn't figure out how to get the slime to fire on a timer.. 
+                // so I gave him a 2% chance to fire per frame (still a lot of firing)
+                Rando = Random.Range(0, 100);
+                if(_attackTarget != null & Rando < 2)
+                {
+                    ECombat.Attack.Shoot(_attackTarget, _speed, EFirePointR, EFirePointL, BulletPrefab);
+                }
+            }
+            else
+            {
+                Wander();
+            }
         }
     }
 }
