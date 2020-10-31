@@ -2,17 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActiveMoveset : MonoBehaviour
+namespace Enemies
 {
-    // Start is called before the first frame update
-    void Start()
+    namespace EMovement
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public class ActiveMoveset : MonoBehaviour
+        {
+                public static void FollowTarget(Enemy enemy, Transform target)
+                {
+                    int direction = 1;
+                    if((float)enemy.HP/enemy.MaxHP <= 0.2)
+                    {
+                        direction = -1;
+                    }       
+                    enemy.transform.position = Vector2.MoveTowards(enemy.transform.position, target.position, direction * enemy.Speed * Time.deltaTime);
+                }
+        }
     }
 }
+

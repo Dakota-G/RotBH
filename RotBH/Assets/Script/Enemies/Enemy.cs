@@ -18,11 +18,11 @@ namespace Enemies
         private float _elapsedT = 0f;
 
         // Random Move attributes
-        private float _latestWanderChangeTime;
-        private float _moveChangeTime;
-        private bool _wandering;
-        private Vector2 _wanderDirection;
-        private Vector2 _movementPerSecond;
+        public float LatestWanderChangeTime;
+        public float MoveChangeTime;
+        public bool Wandering;
+        public Vector2 WanderDirection;
+        public Vector2 MovementPerSecond;
 
         // Follow attributes
         private float _speed;
@@ -38,47 +38,6 @@ namespace Enemies
         private Transform _attackTarget;
         public Transform AttackTarget { get => _attackTarget; set => _attackTarget = value;}
         int Rando;
-
-        private void FollowTarget()
-        {
-            int direction = 1;
-            if((float)_hP/_maxHP <= 0.2)
-            {
-                direction = -1;
-            }       
-            transform.position = Vector2.MoveTowards(transform.position, _target.position, direction * Speed * Time.deltaTime);
-        }
-
-        void CalculateRandomMove(){
-            _wanderDirection = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)).normalized;
-            _movementPerSecond = _wanderDirection * _speed;
-        }
-
-        void Wander()
-        {
-            if (Time.time - _latestWanderChangeTime > _moveChangeTime && _wandering)
-            {
-                _speed = 0;
-                _wandering = false;
-                _latestWanderChangeTime = Time.time;
-                //Time until enemy begins moving again
-                _moveChangeTime = Random.Range(1f,2f);
-            }
-            else if(Time.time - _latestWanderChangeTime > _moveChangeTime && !_wandering)
-            {
-                _speed = 0.5f;
-                _latestWanderChangeTime = Time.time;
-                CalculateRandomMove();
-                _wandering = true;
-                //Time until enemy stops again
-                _moveChangeTime = Random.Range(2f,4f);
-            }  
-            if(_speed > 0)
-            {
-                transform.position = new Vector2(transform.position.x + (_movementPerSecond.x * Time.deltaTime), 
-                transform.position.y + (_movementPerSecond.y * Time.deltaTime));
-            }
-        }
 
         void OnCollisionEnter2D(Collision2D collision)
         {
@@ -130,10 +89,10 @@ namespace Enemies
             _hP = _maxHP;
             HPbar.SetHealth(_hP, _maxHP);
             _speed = 0.5f;
-            _latestWanderChangeTime = 0f;
-            _wandering = true;
-            _moveChangeTime = Random.Range(2f,4f);
-            CalculateRandomMove();
+            LatestWanderChangeTime = 0f;
+            Wandering = true;
+            MoveChangeTime = Random.Range(2f,4f);
+            EMovement.InactiveMoveset.CalculateRandomMove(this);
             _elapsedT = 0;
         }
 
@@ -141,18 +100,18 @@ namespace Enemies
         {
             if(_target != null)
             {
-                FollowTarget();
+                EMovement.ActiveMoveset.FollowTarget(this, _target);
                 // Couldn't figure out how to get the slime to fire on a timer.. 
                 // so I gave him a 2% chance to fire per frame (still a lot of firing)
                 Rando = Random.Range(0, 100);
                 if(_attackTarget != null & Rando < 2)
                 {
-                    ECombat.Attack.Shoot(_attackTarget, _speed, EFirePointR, EFirePointL, BulletPrefab);
+                    ECombat.Attack.Shoot(this, _attackTarget);
                 }
             }
             else
             {
-                Wander();
+                EMovement.InactiveMoveset.Wander(this);
             }
         }
     }

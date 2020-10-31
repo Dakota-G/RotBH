@@ -19,6 +19,7 @@ namespace Players
         private int _inventorySize = 5;
         public int InventorySize { get => _inventorySize; set => _inventorySize = value; }
         private float _speed = 3f;
+        public float Speed { get => _speed; set => _speed = value; }
         private bool _isAlive;
         public bool IsAlive { get => _isAlive; set => _isAlive = value;}
         public List<Potion> HP_Pots;
@@ -89,7 +90,7 @@ namespace Players
 
         void Update()
         {
-            PMovement.MouseFollow.Move(RB, Cam, _speed);
+            PMovement.MouseFollow.Move(this);
             Drink_Potion();
             PCombat.Attack.Shoot(firePoint, bulletPrefab);
         }
