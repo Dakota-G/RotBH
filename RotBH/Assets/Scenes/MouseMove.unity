@@ -228,6 +228,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 791434701}
+  - {fileID: 1886973180}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -651,6 +652,73 @@ MonoBehaviour:
   - {fileID: 6092269260110457118, guid: c04424cd3aae50c4aaf5568bbcf7b61e, type: 3}
   - {fileID: 6092269260110457118, guid: c04424cd3aae50c4aaf5568bbcf7b61e, type: 3}
   potionSpawnPosition: {x: 0, y: 0, z: 0}
+  obstacleSpawnPosition: {x: 0, y: 0, z: 0}
+--- !u!1 &1886973179
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1886973180}
+  - component: {fileID: 1886973182}
+  - component: {fileID: 1886973181}
+  m_Layer: 0
+  m_Name: OuterRange
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1886973180
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886973179}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 422366331}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1886973181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886973179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00ddf4f4f6ebc25468a5b5cc41ab14c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _obstacleCount: 0
+  distanceToLook: 30
+  numberOfObstacles: 50
+  obstacleList:
+  - {fileID: 4445075513300545494, guid: 0a96b9bd752b51f4d9f15f4c7f9ac16d, type: 3}
+  - {fileID: 2585041768314105708, guid: 395bfa97d4649f948823fedcbab7a49f, type: 3}
+--- !u!58 &1886973182
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886973179}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 30
 --- !u!1 &1901496534 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 576824636766269353, guid: 6258ac0474ebae344bf908801234d600, type: 3}
