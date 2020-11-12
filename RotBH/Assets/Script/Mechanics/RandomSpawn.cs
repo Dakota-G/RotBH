@@ -12,6 +12,7 @@ namespace Mechanics
 
         public GameObject[] potions;
         public Vector3 potionSpawnPosition;
+        public Vector3 obstacleSpawnPosition;
         // Start is called before the first frame update
         void Start()
         {
@@ -34,6 +35,16 @@ namespace Mechanics
                 enemySpawnPosition.z = 0;
                 Instantiate(enemy, enemySpawnPosition, Quaternion.identity);
             }
+        }
+
+        public void SpawnObstacle(GameObject obstacle, float xPos, float yPos)
+        {
+            obstacleSpawnPosition.x = Random.Range(-xPos,xPos);
+            obstacleSpawnPosition.y = Random.Range(-yPos,yPos);
+            obstacleSpawnPosition.z = 0;
+            Debug.Log($"I'm making an obstacle at: x = {obstacleSpawnPosition.x} y = {obstacleSpawnPosition.y}");
+            GameObject spawnedObstacle = Instantiate(obstacle, obstacleSpawnPosition, Quaternion.identity);
+            spawnedObstacle.tag = "Obstacle";
         }
 
         void SpawnPotions()

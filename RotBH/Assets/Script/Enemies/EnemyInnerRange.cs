@@ -13,7 +13,7 @@ namespace Enemies
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            Debug.Log("Hit");
+            // Debug.Log("Hit");
             if(collision.tag == "Player")
             {
                 _parent.Speed = 2f;

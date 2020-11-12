@@ -11,7 +11,7 @@ namespace Enemies
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            Debug.Log("Attaaa-AA-aaack!");
+            // Debug.Log("Attaaa-AA-aaack!");
             if(collision.tag == "Player")
             {
                 _parent.AttackTarget = collision.transform;
